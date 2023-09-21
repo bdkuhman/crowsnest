@@ -158,7 +158,7 @@ install_crowsnest_conf() {
 
 enable_service() {
     [[ -n "${SKIP_SYSCTL}" ]] || SKIP_SYSCTL="0"
-    if [[ "${SKIP_SYSCTL}" = "0"]]; then
+    if [[ "${SKIP_SYSCTL}" = "0" ]]; then
         sudo systemctl enable crowsnest.service &> /dev/null || return 1
     fi
     return 1
