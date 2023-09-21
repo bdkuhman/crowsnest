@@ -161,7 +161,7 @@ enable_service() {
     # if [[ "${SKIP_SYSCTL}" = "0" ]]; then
     #     sudo systemctl enable crowsnest.service &> /dev/null || return 1
     # fi
-    return 1
+    return 0;
 }
 
 add_group_video() {
