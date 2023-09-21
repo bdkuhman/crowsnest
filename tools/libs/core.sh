@@ -157,7 +157,11 @@ install_crowsnest_conf() {
 }
 
 enable_service() {
-    sudo systemctl enable crowsnest.service &> /dev/null || return 1
+    [[ -n "${SKIP_SYSCTL}" ]] || SKIP_SYSCTL="0"
+    if [[ "${SKIP_SYSCTL}" = "0"]]; then
+        sudo systemctl enable crowsnest.service &> /dev/null || return 1
+    fi
+    return 1
 }
 
 add_group_video() {
